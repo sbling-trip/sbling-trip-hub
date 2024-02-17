@@ -11,12 +11,18 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=sbling
       - POSTGRES_DB=sbling-trip
+    networks:
+      - default
+      - sbling-net
 
   gateway:
     image: sblingtrip/sbling-trip-gateway:latest
     pull_policy: always
     ports:
       - 8080:8080
+    networks:
+      - default
+      - sbling-net
 
   auth:
     image: sblingtrip/sbling-trip-auth:latest
@@ -26,6 +32,9 @@ services:
     depends_on:
       - db
       - gateway
+    networks:
+      - default
+      - sbling-net
   api:
     image: sblingtrip/sbling-trip-api:latest
     pull_policy: always
@@ -34,3 +43,10 @@ services:
     depends_on:
       - db
       - gateway
+    networks:
+      - default
+      - sbling-net
+
+networks:
+  sbling-net:
+    driver: bridge
