@@ -22,6 +22,9 @@ services:
       - 80:80
       - 443:443
       - 8080:8080
+    depends_on:
+      - auth
+      - api
     networks:
       - default
       - sbling-net
@@ -33,7 +36,6 @@ services:
       - 3000:3000
     depends_on:
       - db
-      - gateway
     networks:
       - default
       - sbling-net
@@ -44,7 +46,6 @@ services:
       - 8000:8000
     depends_on:
       - db
-      - gateway
     networks:
       - default
       - sbling-net
