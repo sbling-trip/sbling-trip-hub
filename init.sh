@@ -20,6 +20,6 @@ sudo start-docker.sh
 # Your commands go here
 # git clone https://github.com/cruizba/ubuntu-dind
 # docker run --privileged ubuntu-dind-test docker run hello-world
-docker-compose up -d
+sudo docker-compose up -d
 
 /bin/bash

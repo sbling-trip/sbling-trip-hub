@@ -13,19 +13,22 @@ services:
       - POSTGRES_DB=sbling-trip
 
   gateway:
-    image: sbling-gateway:latest
+    image: sblingtrip/sbling-trip-gateway:latest
+    pull_policy: always
     ports:
       - 8080:8080
 
   auth:
-    image: sbling-trip-auth:latest
+    image: sblingtrip/sbling-trip-auth:latest
+    pull_policy: always
     ports:
       - 3000:3000
     depends_on:
       - db
       - gateway
   api:
-    image: sbling-trip-api:latest
+    image: sblingtrip/sbling-trip-api:latest
+    pull_policy: always
     ports:
       - 8000:8000
     depends_on:
