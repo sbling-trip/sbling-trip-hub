@@ -1,0 +1,6 @@
+.ssh/sbling-trip-git
+dockerfiles/auth/.ssh/sbling-trip-git
+.idea/*
+.env.production.local
+.env.development.local
+db/*

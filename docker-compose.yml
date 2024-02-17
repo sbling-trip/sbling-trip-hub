@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - /home/sbling/sbling-trip-db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=sbling
+      - POSTGRES_DB=sbling-trip
+
+  gateway:
+    image: sbling-gateway:latest
+    ports:
+      - 8080:8080
+
+  auth:
+    image: sbling-trip-auth:latest
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+      - gateway
+  api:
+    image: sbling-trip-api:latest
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+      - gateway
