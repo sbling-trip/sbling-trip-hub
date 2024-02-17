@@ -39,6 +39,8 @@ RUN chmod 777 /home/sbling/.vimrc
 COPY init.sh /home/sbling/init.sh
 RUN chmod 700 /home/sbling/init.sh
 
+COPY docker-compose.yml /home/sbling/docker-compose.yml
+
 RUN chown -R sbling /home/sbling
 
 
