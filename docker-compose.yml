@@ -49,6 +49,8 @@ services:
     networks:
       - default
       - sbling-net
+    environment:
+      - PHASE=prod
 
 networks:
   sbling-net:
