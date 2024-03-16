@@ -21,5 +21,6 @@ docker run -d -it --rm --privileged \
   -p 10443:443 \
   -p 15432:5432 \
   -v /Users/kimhyun/sbling_trip_volume/postgres_data_prod:/home/sbling/sbling-trip-db \
+  -v /Users/kimhyun/sbling_trip_volume/cert_prod:/home/sbling/sbling-trip-gateway \
   sblingtrip/sbling-trip-hub:"$1"
 
